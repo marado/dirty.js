@@ -1,0 +1,27 @@
+Source: dirty.js
+Section: web
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders:
+ David Paleino <dapal@debian.org>
+Build-Depends:
+ debhelper (>= 8.0.0)
+ , dh-buildinfo
+Standards-Version: 3.9.2
+Homepage: https://github.com/felixge/node-dirty
+Vcs-Git: git://git.debian.org/collab-maint/dirty.js.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/dirty.js.git;a=summary
+
+Package: libnode-dirty
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+Description: tiny and fast key-value store with append-only disk log
+ Dirty.js is a tiny & fast key value store with append-only disk log.
+ It is ideal for apps with less than 1 million records.
+ Its characteristics are:
+  - the file format is newline separated JSON;
+  - the database lives in the same process as the application, they
+    share memory;
+  - there is no query language, you just forEach through all records.

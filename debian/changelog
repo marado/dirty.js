@@ -1,0 +1,5 @@
+dirty.js (0.9.4-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #644862)
+
+ -- David Paleino <dapal@debian.org>  Sun, 09 Oct 2011 21:52:07 +0200
