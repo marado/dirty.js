@@ -17,7 +17,7 @@ Architecture: all
 Depends:
  ${misc:Depends}
  , nodejs
-Description: tiny and fast key-value store for Node.
+Description: tiny and fast key-value store for Node
  Node is an event-based server-side JavaScript engine.
  .
  Dirty.js is a tiny & fast key value store with append-only disk log.
