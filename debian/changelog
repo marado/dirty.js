@@ -1,3 +1,9 @@
+dirty.js (0.9.4-2) UNRELEASED; urgency=low
+
+  * Compliance to Debian Javascript Policy
+
+ -- David Paleino <dapal@debian.org>  Sun, 16 Oct 2011 00:26:33 +0200
+
 dirty.js (0.9.4-1) unstable; urgency=low
 
   * Initial release (Closes: #644862)

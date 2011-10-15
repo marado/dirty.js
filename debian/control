@@ -12,7 +12,7 @@ Homepage: https://github.com/felixge/node-dirty
 Vcs-Git: git://git.debian.org/collab-maint/dirty.js.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/dirty.js.git;a=summary
 
-Package: libnode-dirty
+Package: node-dirty
 Architecture: all
 Depends:
  ${misc:Depends}
