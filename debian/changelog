@@ -1,8 +1,8 @@
-dirty.js (0.9.5-1) UNRELEASED; urgency=low
+dirty.js (0.9.5-1) unstable; urgency=low
 
   * New upstream version
 
- -- David Paleino <dapal@debian.org>  Fri, 30 Dec 2011 12:51:05 +0100
+ -- David Paleino <dapal@debian.org>  Fri, 30 Dec 2011 12:51:12 +0100
 
 dirty.js (0.9.4-2) unstable; urgency=low
 
