@@ -1,3 +1,9 @@
+dirty.js (0.9.9-0~nmu1) unstable; urgency=low
+
+  * New upstream version (Closes: #771790)
+
+ -- Marcos Marado <mindboosternoori@gmail.com>  Tue, 02 Dec 2014 12:15:20 +0100
+
 dirty.js (0.9.6-1) unstable; urgency=low
 
   * New upstream version

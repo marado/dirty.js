@@ -6,7 +6,9 @@ A tiny & fast key value store with append-only disk log. Ideal for apps with < 1
 
 ## Installation
 
-    npm install dirty
+```bash
+npm install dirty
+```
 
 ## Why dirty?
 
@@ -21,26 +23,27 @@ but it is a wonderful solution for anything smaller than that.
 
 ## Tutorial
 
-    require('../test/common');
-    var db = require('dirty')('user.db');
+```javascript
+  var dirty = require('dirty');
+  var db = dirty('user.db');
 
-    db.on('load', function() {
-      db.set('john', {eyes: 'blue'});
-      console.log('Added john, he has %s eyes.', db.get('john').eyes);
+  db.on('load', function() {
+    db.set('john', {eyes: 'blue'});
+    console.log('Added john, he has %s eyes.', db.get('john').eyes);
 
-      db.set('bob', {eyes: 'brown'}, function() {
-        console.log('User bob is now saved on disk.')
-      });
-
-      db.forEach(function(key, val) {
-        console.log('Found key: %s, val: %j', key, val);
-      });
+    db.set('bob', {eyes: 'brown'}, function() {
+      console.log('User bob is now saved on disk.')
     });
 
-    db.on('drain', function() {
-      console.log('All records are saved on disk now.');
+    db.forEach(function(key, val) {
+      console.log('Found key: %s, val: %j', key, val);
     });
+  });
 
+  db.on('drain', function() {
+    console.log('All records are saved on disk now.');
+  });
+```
 Output:
 
     Added john, he has blue eyes.
@@ -58,11 +61,12 @@ can also omit the `path` if you don't want disk persistence (useful for testing)
 
 The constructor can be invoked in multiple ways:
 
-    require('dirty')('my.db');
-    require('dirty').Dirty('my.db');
-    new (require('dirty'))('my.db');
-    new (require('dirty').Dirty)('my.db');
-
+```javascript
+require('dirty')('my.db');
+require('dirty').Dirty('my.db');
+new (require('dirty'))('my.db');
+new (require('dirty').Dirty)('my.db');
+```
 ### dirty.path
 
 The path of the dirty database.
@@ -91,6 +95,10 @@ if you are only interested in a limited number of records).
 
 This function is blocking and runs at ~4 Mhz.
 
+### dirty.close()
+
+Close the dirty db file handle. 
+
 ### dirty event: 'load' (length)
 
 Emitted once the database file has finished loading. It is not safe to access
@@ -99,9 +107,36 @@ records before this event fires. Writing records however should be fine.
 `length` is the amount of records the database is holding. This only counts each
 key once, even if it had been overwritten.
 
+You can chain the on load to the contructor as follows:
+
+```javascript
+var db = dirty(file).on('load', function() { ... });
+```
+
 ### dirty event: 'drain' ()
 
 Emitted whenever all records have been written to disk.
+
+### dirty event: 'read_close' ()
+
+Emitted once the database file read stream closed.
+
+### dirty event : 'write_close' ()
+
+Emitted once the database file write stream closed.
+
+## Tests
+
+[![Build Status](https://travis-ci.org/felixge/node-dirty.png)](https://travis-ci.org/felixge/node-dirty)
+
+Dirty utilizes the [Mocha](http://visionmedia.github.com/mocha/) test framework.
+
+```bash
+git clone https://github.com/felixge/node-dirty
+cd node-dirty
+npm install
+npm test
+```
 
 ## License
 
